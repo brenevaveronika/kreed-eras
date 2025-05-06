@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../views/Home.vue';
-import Album from '../views/Album.vue';
-import Track from '../views/Track.vue';
+import Home from '@/components/views/Home.vue';
+import Album from '@/components/views/Album.vue';
+import Track from '@/components/views/Track.vue';
 
 const routes = [
   { path: '/', component: Home },

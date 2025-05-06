@@ -1,15 +1,13 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-import Home from "@/views/Home.vue";
+
+import Home from "@/components/views/Home.vue";
 </script>
 
 <template>
-  <main>
-    <Home></Home>
-  </main>
+  <body>
+      <Home></Home>
+  </body>
 </template>
 
 <style scoped>
-
 </style>
