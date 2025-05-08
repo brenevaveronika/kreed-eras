@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '@/components/views/Home.vue';
 import Album from '@/components/views/Album.vue';
-import Track from '@/components/views/Track.vue';
+import SongPage from '@/components/views/SongPage.vue'; // Импортируем новую страницу
 
 const routes = [
   { path: '/', component: Home },
   { path: '/album/:id', component: Album },
-  { path: '/track/:id', component: Track },
+  { path: '/song/:id', name: 'song', component: SongPage }, // Добавляем новый маршрут
 ];
 
 const router = createRouter({

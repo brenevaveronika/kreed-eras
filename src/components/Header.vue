@@ -26,6 +26,7 @@ header {
   width: 100%;
   min-height: 10vh;
   align-items: center;
+  box-sizing: border-box;
 }
 
 nav {

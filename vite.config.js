@@ -6,6 +6,15 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
+  server: {
+    proxy: {
+      '/musixmatch': {
+        target: 'https://apic-desktop.musixmatch.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/musixmatch/, '')
+      }
+    }
+  },
   plugins: [
     vue(),
     vueDevTools(),

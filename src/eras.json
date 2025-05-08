@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Холостяк",
+    "year": 2015,
+    "color": "#5a5a5a",
+    "image": "src/assets/img/holostyak_main.jpg",
+    "geniusId": 378195,
+    "songs": [
+      { "geniusId": 123, "title": "Название песни" },
+      { "geniusId": 456, "title": "Другая песня" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Что они знают?",
+    "year": 2017,
+    "color": "#8a0808",
+    "image": "src/assets/img/whatdoestheyknow_main.jpeg"
+  },
+  {
+    "id": 3,
+    "name": "58",
+    "year": 2020,
+    "color": "#d9d952",
+    "image": "src/assets/img/58_main.jpg"
+  },
+  {
+    "id": 4,
+    "name": "PUSSY BOY",
+    "year": 2021,
+    "color": "#A3AD96",
+    "image": "src/assets/img/pussyboy_main.png"
+  },
+  {
+    "id": 5,
+    "name": "<3>",
+    "year": 2024,
+    "color": "#E0C1C6",
+    "image": "src/assets/img/lessthan3_main.webp"
+  }
+]
