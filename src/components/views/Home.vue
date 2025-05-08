@@ -15,69 +15,54 @@
     <div class="eras-heading">
       {{ activeEra?.name || 'Выберите эру' }}
     </div>
-    <div class="description-container">
+    <div class="description-container" v-if="activeEra">
       <div class="eras-description">
-        <p class="eras-d-year"> Дата выхода:  </p>
-        <p class="eras-d-year"> {{ activeEra.year}} </p>
-        <p class="eras-d-tracks-count"> Количество треков: </p>
-        <p class="eras-d-tracks-count"> 19 </p>
-        <h2 class="eras-d-heading"> Трек-лист: </h2>
+        <p class="eras-d-year">Дата выхода:</p>
+        <p class="eras-d-year">{{ activeEra.year }}</p>
+        &nbsp;
+        <p class="eras-d-tracks-count">Количество треков:</p>
+        &nbsp;
+        <p class="eras-d-tracks-count">{{ activeEra.songs.length }}</p>
+        <h2 class="eras-d-heading">Трек-лист:</h2>
         <ul class="eras-track-list">
-          <li class="eras-track">
-            <a class="eras-track-title"> "Самая самая"</a>
-            <div class="eras-track-duration"> 3:51 </div>
-          </li>
-          <li class="eras-track">
-            <a class="eras-track-title"> "Закрой глаза"</a>
-            <div class="eras-track-duration"> 3:50 </div>
-          </li>
-          <li class="eras-track">
-            <a class="eras-track-title"> "Запомни и запиши"</a>
-            <div class="eras-track-duration"> 3:20 </div>
-          </li>
-          <li class="eras-track">
-            <a class="eras-track-title"> "Надо ли"</a>
-            <div class="eras-track-duration"> 3:50 </div>
-          </li>
-          <li class="eras-track">
-            <a class="eras-track-title"> "Ревность"</a>
-            <div class="eras-track-duration"> 3:50 </div>
-          </li>
-          <li class="eras-track">
-            <a class="eras-track-title"> "Ревность"</a>
-            <div class="eras-track-duration"> 3:50 </div>
-          </li>
-          <li class="eras-track">
-            <a class="eras-track-title"> "Ревность"</a>
-            <div class="eras-track-duration"> 3:50 </div>
-          </li>
-          <li class="eras-track">
-            <a class="eras-track-title"> "Ревность"</a>
-            <div class="eras-track-duration"> 3:50 </div>
+          <li
+              v-for="song in activeEra.songs"
+              :key="song.id"
+              class="eras-track"
+          >
+            <a class="eras-track-title">{{ song.title }}</a>
+            <div class="eras-track-duration">
+              {{ formatDuration(song.duration) }}
+            </div>
           </li>
         </ul>
       </div>
     </div>
-
   </div>
 </template>
 
-<script setup>
-import { ref, watch } from 'vue';
-import Header from "@/components/Header.vue";
+<script setup lang="ts">
+import { ref, onMounted, watch } from 'vue';
+import { useEras } from '@/composables/useEras';
+import Header from '@/components/Header.vue';
 
-const eras = ref([
-  { id: 1, name: "Холостяк", year: 2015, color: "#5a5a5a", image: "src/assets/img/holostyak_main.jpg" },
-  { id: 2, name: "Что они знают?", year: 2017, color: "#8a0808", image: "src/assets/img/whatdoestheyknow_main.jpeg" },
-  { id: 3, name: "58", year: 2020, color: "#d9d952", image: "src/assets/img/58_main.jpg" },
-  { id: 4, name: "PUSSY BOY", year: 2021, color: "#A3AD96", image: "src/assets/img/pussyboy_main.png" },
-  { id: 5, name: "<3>", year: 2024, color: "#E0C1C6", image: "src/assets/img/lessthan3_main.webp" },
-]);
+const { eras } = useEras();
+const activeEra = ref(null);
 
-const activeEra = ref(eras.value[0]);
+onMounted(() => {
+  if (eras.value.length > 0) {
+    activeEra.value = eras.value[0]; // Устанавливаем первую эру по умолчанию
+  }
+});
 
 const selectEra = (era) => {
   activeEra.value = era;
+};
+
+const formatDuration = (duration) => {
+  const minutes = Math.floor(duration / 60);
+  const seconds = duration % 60;
+  return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 };
 
 watch(activeEra, (newEra) => {
@@ -89,7 +74,7 @@ watch(activeEra, (newEra) => {
 
 <style scoped>
 .home {
-  background: rgba(0, 0, 0, 0.2); /* Полупрозрачный слой поверх фона */
+  background: rgba(0, 0, 0, 0.2);
   min-height: 100vh;
   box-sizing: border-box;
 }
@@ -99,7 +84,6 @@ watch(activeEra, (newEra) => {
   width: 100%;
   height: 80vh;
 }
-
 
 .era-card {
   flex: 1;
@@ -148,10 +132,11 @@ watch(activeEra, (newEra) => {
   align-items: baseline;
   box-sizing: border-box;
 }
+
 .eras-d-year,
 .eras-d-tracks-count {
   grid-column: span 2;
-  display: contents; /* Дочерние элементы становятся частью grid */
+  display: contents;
 }
 
 .eras-d-heading {
@@ -160,9 +145,7 @@ watch(activeEra, (newEra) => {
   grid-column: span 2;
   margin: 15px 0 10px 0;
 }
-.eras-d-heading {
-  grid-column: 1/-1;
-}
+
 .eras-track-list {
   grid-column: span 2;
   list-style: none;
