@@ -1,6 +1,28 @@
 <script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import IconSearch from "@/components/icons/IconSearch.vue";
 import IconEgorKreedLogo from "@/components/icons/IconEgorKreedLogo.vue";
+import { useEras } from '@/composables/useEras';
+
+const searchQuery = ref('');
+const router = useRouter();
+const { eras } = useEras();
+const notFoundMessage = ref('');
+
+const searchSong = () => {
+  const allSongs = eras.value.flatMap(era => era.songs);
+  const foundSong = allSongs.find(song =>
+      song.title.toLowerCase().includes(searchQuery.value.toLowerCase())
+  );
+
+  if (foundSong) {
+    notFoundMessage.value = '';
+    router.push({ name: 'song', params: { id: foundSong.id } });
+  } else {
+    notFoundMessage.value = 'Песня не найдена';
+  }
+};
 </script>
 
 <template>
@@ -13,9 +35,15 @@ import IconEgorKreedLogo from "@/components/icons/IconEgorKreedLogo.vue";
       </div>
       <div class="search-input">
         <IconSearch />
-        <input placeholder="Поиск песен..." type="text" />
+        <input
+            v-model="searchQuery"
+            @keyup.enter="searchSong"
+            placeholder="Поиск песен..."
+            type="text"
+        />
       </div>
     </nav>
+    <p v-if="notFoundMessage" class="not-found-message">{{ notFoundMessage }}</p>
   </header>
 </template>
 
@@ -27,6 +55,11 @@ header {
   min-height: 10vh;
   align-items: center;
   box-sizing: border-box;
+}
+.not-found-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
 }
 
 nav {

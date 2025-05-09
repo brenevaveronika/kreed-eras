@@ -39,6 +39,15 @@
         </ul>
       </div>
     </div>
+    <footer class="footer">
+      <div class="social-links">
+        <a href="https://vk.com/egorkreed" target="_blank">VK</a>
+        <a href="https://www.instagram.com/egorkreed/" target="_blank">Instagram</a>
+        <a href="https://www.youtube.com/user/EgorKReed" target="_blank">YouTube</a>
+        <a href="https://t.me/egorkreed" target="_blank">Telegram</a>
+      </div>
+      <p class="credits">made by nikaginger x kkatyae</p>
+    </footer>
   </div>
 </template>
 
@@ -169,5 +178,34 @@ watch(activeEra, (newEra) => {
   padding-bottom: 8px;
   border-bottom: 1px solid #eee;
   cursor: pointer;
+}
+.footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+  margin-top: auto;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.social-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
+
+.credits {
+  font-size: 12px;
+  margin: 0;
 }
 </style>
