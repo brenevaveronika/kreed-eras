@@ -62,7 +62,6 @@ const duration = ref(0);
 const lyrics = ref<LyricLine[]>([]);
 const currentLineIndex = ref(-1);
 
-// Исправленный парсер LRC
 const parseLRC = (text: string): LyricLine[] => {
   const lines = text.trim().split('\n');
   const result: LyricLine[] = [];
@@ -72,7 +71,6 @@ const parseLRC = (text: string): LyricLine[] => {
     let match;
     const textPart = line.replace(timeRegex, '').trim();
 
-    // Создаем новый RegExp для каждой строки
     const regex = new RegExp(timeRegex.source, 'g');
     while ((match = regex.exec(line)) !== null) {
       const minutes = parseInt(match[1]);
@@ -90,7 +88,6 @@ const parseLRC = (text: string): LyricLine[] => {
   return result.sort((a, b) => a.time - b.time);
 };
 
-// Остальной код без изменений...
 const currentLine = computed(() => {
   return currentLineIndex.value >= 0
       ? lyrics.value[currentLineIndex.value]
@@ -162,10 +159,6 @@ onMounted(() => {
   text-align: center;
 }
 
-.controls {
-  margin-bottom: 20px;
-}
-
 .controls button {
   padding: 8px 16px;
   font-size: 16px;
@@ -173,7 +166,7 @@ onMounted(() => {
 }
 
 .lyrics-display {
-  height: 300px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -193,7 +186,7 @@ onMounted(() => {
 }
 
 .prev-line, .next-line {
-  color: #666;
+  color: #7e7b7b;
 }
 
 input[type="range"] {

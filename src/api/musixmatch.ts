@@ -72,7 +72,7 @@ export class MusixmatchAPI {
         }
 
         this.userToken = data.message.body.user_token;
-        this.tokenExpires = Date.now() + 600000; // 10 minutes
+        this.tokenExpires = Date.now() + 600000;
 
         await this.cache.set(
             'musix_token',

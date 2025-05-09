@@ -7,7 +7,7 @@ import IconEgorKreedLogo from "@/components/icons/IconEgorKreedLogo.vue";
   <header>
     <nav>
       <router-link to="/" class="nav-link">ГЛАВНАЯ</router-link>
-      <router-link to="/songs" class="nav-link">КОНЦЕРТЫ</router-link>
+      <router-link to="/" class="nav-link">КОНЦЕРТЫ</router-link>
       <div class="logo-container">
         <IconEgorKreedLogo class="logo" />
       </div>

@@ -33,20 +33,16 @@ const currentSong = ref<SongBasic>({
 });
 
 onMounted(async () => {
-  // Находим песню в данных эр
   for (const era of eras.value) {
     const song = era.songs.find(s => s.id === Number(props.songId));
     if (song) {
-      // Явно копируем только необходимые поля
       currentSong.value = {
         title: song.title,
         artist: song.artist,
-        duration: song.duration || 0, // обеспечиваем значение по умолчанию
-        lyrics: song.lyrics || ''     // обеспечиваем значение по умолчанию
+        duration: song.duration || 0,
+        lyrics: song.lyrics || ''
       };
-
       try {
-        // Загружаем текст песни только если его нет
         if (!currentSong.value.lyrics) {
           currentSong.value.lyrics = await musixmatchAPI.getSyncedLyrics(
               song.title,

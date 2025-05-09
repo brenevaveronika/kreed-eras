@@ -1,16 +1,10 @@
 <script setup>
-import {ref} from 'vue';
-import Home from "@/components/views/Home.vue";
-import SongPage from "@/components/views/SongPage.vue";
+import { RouterView } from 'vue-router';
 </script>
 
 <template>
-  <body>
-  <Home></Home>
-<!--  <SongPage song-id="101"></SongPage>-->
-  </body>
+  <RouterView />
 </template>
 
 <style scoped>
 </style>
-

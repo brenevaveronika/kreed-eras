@@ -17,7 +17,7 @@
     </div>
     <div class="description-container" v-if="activeEra">
       <div class="eras-description">
-        <p class="eras-d-year">Дата выхода:</p>
+        <p class="eras-d-year">Дата выхода: </p>
         <p class="eras-d-year">{{ activeEra.year }}</p>
         &nbsp;
         <p class="eras-d-tracks-count">Количество треков:</p>
@@ -29,6 +29,7 @@
               v-for="song in activeEra.songs"
               :key="song.id"
               class="eras-track"
+              @click="goToSong(song.id)"
           >
             <a class="eras-track-title">{{ song.title }}</a>
             <div class="eras-track-duration">
@@ -45,15 +46,21 @@
 import { ref, onMounted, watch } from 'vue';
 import { useEras } from '@/composables/useEras';
 import Header from '@/components/Header.vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 const { eras } = useEras();
 const activeEra = ref(null);
 
 onMounted(() => {
   if (eras.value.length > 0) {
-    activeEra.value = eras.value[0]; // Устанавливаем первую эру по умолчанию
+    activeEra.value = eras.value[0];
   }
 });
+
+const goToSong = (songId) => {
+  router.push({ name: 'song', params: { id: songId } });
+};
 
 const selectEra = (era) => {
   activeEra.value = era;

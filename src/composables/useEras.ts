@@ -1,6 +1,5 @@
-
-import { ref } from 'vue';
-import { musixmatchAPI} from "@/api/musixmatch"
+import {ref} from 'vue';
+import {musixmatchAPI} from "@/api/musixmatch"
 
 interface Song {
     id: number;
@@ -93,7 +92,55 @@ const eras = ref<Era[]>([
                 artist: "Егор Крид",
                 duration: 167
             },
-    ]
+            {
+                id: 112,
+                title: "Мы просто любили так",
+                artist: "Егор Крид",
+                duration: 188
+            },
+            {
+                id: 113,
+                title: "Берегу",
+                artist: "Егор Крид",
+                duration: 192
+            },
+            {
+                id: 114,
+                title: "Папина дочка",
+                artist: "Егор Крид",
+                duration: 161
+            },
+            {
+                id: 115,
+                title: "Холостяк",
+                artist: "Егор Крид",
+                duration: 167
+            },
+            {
+                id: 116,
+                title: "Я останусь",
+                artist: "Егор Крид",
+                duration: 201
+            },
+            {
+                id: 117,
+                title: "Вдаль",
+                artist: "Егор Крид",
+                duration: 184
+            },
+            {
+                id: 118,
+                title: "You're My Galaxy",
+                artist: "Егор Крид",
+                duration: 238
+            },
+            {
+                id: 119,
+                title: "Важно",
+                artist: "Егор Крид",
+                duration: 195
+            },
+        ]
     },
     {
         id: 2,
@@ -185,76 +232,46 @@ const eras = ref<Era[]>([
         songs: [
             {
                 id: 301,
-                title: "Интро",
-                artist: "Егор Крид",
-                duration: 231
+                title: "58",
+                artist: "Egor Kreed",
+                duration: 113
             },
             {
                 id: 302,
-                title: "Что они знают",
-                artist: "Егор Крид",
-                duration: 230
+                title: "Мне всё Монро",
+                artist: "Egor Kreed, HammAli & Navai",
+                duration: 140
             },
             {
-                id: 203,
-                title: "Не могу",
-                artist: "Егор Крид",
-                duration: 200
+                id: 303,
+                title: "Хуракан",
+                artist: "Egor Kreed",
+                duration: 134
             },
             {
-                id: 204,
-                title: "Алло",
-                artist: "Егор Крид",
-                duration: 200
+                id: 304,
+                title: "Барби (feat. DAVA)",
+                artist: "Egor Kreed, DAVA",
+                duration: 150
             },
             {
-                id: 205,
-                title: "Потрачу",
-                artist: "Егор Крид",
-                duration: 198
+                id: 305,
+                title: "Девочка с картинки",
+                artist: "Egor Kreed",
+                duration: 148
             },
             {
-                id: 206,
-                title: "Засыпай",
-                artist: "Егор Крид, МОТ",
-                duration: 179
+                id: 306,
+                title: "Mr. & Mrs. Smith (feat. Nyusha)",
+                artist: "Egor Kreed, NYUSHA",
+                duration: 190
             },
             {
-                id: 207,
-                title: "Стой",
-                artist: "Егор Крид",
-                duration: 218
-            },
-            {
-                id: 208,
-                title: "Не обманывай",
-                artist: "Егор Крид",
-                duration: 161
-            },
-            {
-                id: 209,
-                title: "Самба белого мотылька",
-                artist: "Егор Крид",
-                duration: 206
-            },
-            {
-                id: 210,
-                title: "Что скажет мама",
-                artist: "Егор Крид",
-                duration: 201
-            },
-            {
-                id: 211,
-                title: "Зажигалки",
-                artist: "Егор Крид",
-                duration: 167
-            },
-            {
-                id: 212,
-                title: "Если ты меня не любишь",
-                artist: "Егор Крид, MOLLY",
-                duration: 167
-            },
+                id: 307,
+                title: "Веселая песня",
+                artist: "Egor Kreed, MORGENSHTE...",
+                duration: 187
+            }
         ]
     },
     {
@@ -266,76 +283,64 @@ const eras = ref<Era[]>([
         songs: [
             {
                 id: 401,
-                title: "Интро",
-                artist: "Егор Крид",
-                duration: 231
+                title: "PUSSY BOY",
+                artist: "Egor Kreed",
+                duration: 214
             },
             {
                 id: 402,
-                title: "Что они знают",
-                artist: "Егор Крид",
-                duration: 230
+                title: "ЗДРАВСТВУЙТЕ (feat. OG Buda)",
+                artist: "Egor Kreed, OG Buda",
+                duration: 217
             },
             {
-                id: 203,
-                title: "Не могу",
-                artist: "Егор Крид",
-                duration: 200
+                id: 403,
+                title: "HA MHE HOE",
+                artist: "Egor Kreed",
+                duration: 210
             },
             {
-                id: 204,
-                title: "Алло",
-                artist: "Егор Крид",
-                duration: 200
-            },
-            {
-                id: 205,
-                title: "Потрачу",
-                artist: "Егор Крид",
-                duration: 198
-            },
-            {
-                id: 206,
-                title: "Засыпай",
-                artist: "Егор Крид, МОТ",
-                duration: 179
-            },
-            {
-                id: 207,
-                title: "Стой",
-                artist: "Егор Крид",
-                duration: 218
-            },
-            {
-                id: 208,
-                title: "Не обманывай",
-                artist: "Егор Крид",
-                duration: 161
-            },
-            {
-                id: 209,
-                title: "Самба белого мотылька",
-                artist: "Егор Крид",
+                id: 404,
+                title: "PUFF (feat. MAYOT)",
+                artist: "Egor Kreed, MAYOT",
                 duration: 206
             },
             {
-                id: 210,
-                title: "Что скажет мама",
-                artist: "Егор Крид",
-                duration: 201
+                id: 405,
+                title: "ДЕД РОЕТ",
+                artist: "Egor Kreed",
+                duration: 211
             },
             {
-                id: 211,
-                title: "Зажигалки",
-                artist: "Егор Крид",
-                duration: 167
+                id: 406,
+                title: "DOROGO (feat. blago white)",
+                artist: "Egor Kreed, blago white",
+                duration: 328
             },
             {
-                id: 212,
-                title: "Если ты меня не любишь",
-                artist: "Егор Крид, MOLLY",
-                duration: 167
+                id: 407,
+                title: "CHOPPA",
+                artist: "Egor Kreed",
+                duration: 213
             },
+            {
+                id: 408,
+                title: "ABTOMAT (feat. Гуф)",
+                artist: "Egor Kreed, GUF",
+                duration: 259
+            },
+            {
+                id: 409,
+                title: "ТЕЛЕФОН",
+                artist: "Egor Kreed",
+                duration: 205
+            },
+            {
+                id: 410,
+                title: "ГРУСТНО (feat. SODA LUV)",
+                artist: "Egor Kreed, SODA LUV",
+                duration: 233
+            }
         ]
     },
     {
@@ -419,10 +424,6 @@ const eras = ref<Era[]>([
             },
         ]
     }
-
-
-
-    // ... другие эры
 ]);
 
 async function loadLyricsForEra(eraId: number) {
