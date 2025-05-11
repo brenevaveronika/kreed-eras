@@ -79,8 +79,6 @@ function getDefaultAudioSrc( songId) {
 </script>
 
 <template>
-  <Header />
-
   <div v-if="loading" class="loading">Загрузка песни...</div>
   <div v-else-if="error" class="error">{{ error }}</div>
   <div v-else class="song-page">

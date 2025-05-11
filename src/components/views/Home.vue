@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <Header></Header>
     <div class="eras-container">
       <div
           v-for="era in eras"
